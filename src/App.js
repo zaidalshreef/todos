@@ -16,9 +16,11 @@ function App() {
   }
 
   function deleteTask(index) {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+    setTodos(oldTodos => {
+      return oldTodos.filter((todo, i) => {
+        return i !== index;
+        });
+    });
   }
 
   return (
